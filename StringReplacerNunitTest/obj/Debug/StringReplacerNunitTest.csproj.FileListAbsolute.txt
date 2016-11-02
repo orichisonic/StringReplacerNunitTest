@@ -1,0 +1,8 @@
+d:\Users\wanglin36\StringReplacerNunitTest\StringReplacerNunitTest\bin\Debug\StringReplacerNunitTest.exe.config
+d:\Users\wanglin36\StringReplacerNunitTest\StringReplacerNunitTest\bin\Debug\StringReplacerNunitTest.exe
+d:\Users\wanglin36\StringReplacerNunitTest\StringReplacerNunitTest\bin\Debug\StringReplacerNunitTest.pdb
+d:\Users\wanglin36\StringReplacerNunitTest\StringReplacerNunitTest\obj\Debug\StringReplacerNunitTest.exe
+d:\Users\wanglin36\StringReplacerNunitTest\StringReplacerNunitTest\obj\Debug\StringReplacerNunitTest.pdb
+d:\Users\wanglin36\StringReplacerNunitTest\StringReplacerNunitTest\obj\Debug\StringReplacerNunitTest.csprojResolveAssemblyReference.cache
+d:\Users\wanglin36\StringReplacerNunitTest\StringReplacerNunitTest\bin\Debug\nunit.framework.dll
+d:\Users\wanglin36\StringReplacerNunitTest\StringReplacerNunitTest\bin\Debug\nunit.framework.xml
