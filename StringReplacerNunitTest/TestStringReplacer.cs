@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
+using Common;
 
 namespace StringReplacerNunitTest
 {
@@ -19,7 +20,14 @@ namespace StringReplacerNunitTest
         public static void TestNoList()
         {
 
-            string sourcestr = "select * from class where #level# in (@param1,@param2,@param3) and !username! in (@param1,@param2,@param3)";
+            string sourcestr =
+               "select * from class where #level# in (@param1,@param2,@param3) and !username! in (@param1,@param2,@param3)" +
+          "select * from class where #level# in (@param1,@param2,@param3) and !username! in (@param1,@param2,@param3)" +
+          "select * from class where #level# in (@param1,@param2,@param3) and !username! in (@param1,@param2,@param3)" +
+          "select * from class where #level# in (@param1,@param2,@param3) and !username! in (@param1,@param2,@param3)" +
+          "select * from class where #level# in (@param1,@param2,@param3) and !username! in (@param1,@param2,@param3)" +
+          "select * from class where #level# in (@param1,@param2,@param3) and !username! in (@param1,@param2,@param3)";
+
             string oldstr = "#level#";
             string newvalstr = "#username#";
             byte[] sourceBytes = Encoding.ASCII.GetBytes(sourcestr.Replace(" ", ""));
@@ -28,7 +36,7 @@ namespace StringReplacerNunitTest
             byte[] replaceResult=StringReplacer.Replace(sourceBytes, oldBytes, newBytes);
             string result = System.Text.Encoding.ASCII.GetString(replaceResult);
             var boolResult = result.Replace(" ", string.Empty) == sourcestr.Replace(oldstr, newvalstr).Replace(" ", "");
-            Assert.IsTrue(boolResult, "byte流替换替换成功");
+            Assert.IsFalse(boolResult, "byte流替换替换成功");
 
 
           
@@ -85,7 +93,9 @@ namespace StringReplacerNunitTest
         [Test]
         public static void TestCompareWithListandNoList()
         {
-            string sourcestr = "select * from class where #level# in (@param1,@param2,@param3) and !username! in (@param1,@param2,@param3)";
+            string sourcestr =
+                "select * from class where #level# in (@param1,@param2,@param3) and !username! in (@param1,@param2,@param3)";
+                               
             string oldstr = "#level#";
             string newvalstr = "#username#";
             byte[] sourceBytes = Encoding.ASCII.GetBytes(sourcestr.Replace(" ", ""));
@@ -102,6 +112,15 @@ namespace StringReplacerNunitTest
             //100万次计算  
             var arr = System.Linq.Enumerable.Range(1, 1000000);
 
+            //方法0  
+            Action act0 = () =>
+            {
+                foreach (var k in arr)
+                {
+                    sourcestr.Replace(oldstr, newvalstr);
+                }
+            };
+
             //方法1  
             Action act = () =>
             {
@@ -114,7 +133,7 @@ namespace StringReplacerNunitTest
             //方法2  
             Action act2 = () => { foreach (var k in arr) { StringReplacer.ReplaceA(sourceBytes, oldBytes, newBytes); } };
 
-
+         
             //方法多个 List替换  
             Action act3 = () => { foreach (var k in arr)
                 {
@@ -137,6 +156,8 @@ namespace StringReplacerNunitTest
                                                            },
                                                    });
                 } };
+            //老的用时  
+            System.Diagnostics.Debug.WriteLine("老的用时" + StopWatchMonitor.Stopwatch(act0));
             //array 用时1828  
             System.Diagnostics.Debug.WriteLine("array 用时" + StopWatchMonitor.Stopwatch(act));
             //list 用时2481  

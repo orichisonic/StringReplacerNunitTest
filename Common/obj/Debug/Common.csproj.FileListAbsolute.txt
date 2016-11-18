@@ -1,0 +1,4 @@
+d:\users\wanglin36\StringReplacerNunitTest\Common\bin\Debug\Common.dll
+d:\users\wanglin36\StringReplacerNunitTest\Common\bin\Debug\Common.pdb
+d:\users\wanglin36\StringReplacerNunitTest\Common\obj\Debug\Common.dll
+d:\users\wanglin36\StringReplacerNunitTest\Common\obj\Debug\Common.pdb

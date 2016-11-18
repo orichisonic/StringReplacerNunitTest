@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,10 +11,19 @@ namespace StringReplacerNunitTest
     {
         static void Main(string[] args)
         {
-            TestStringReplacer.TestNoList();
-            TestStringReplacer.TestHasList();
-            TestStringReplacer.TestCompareWithListandNoList();
-            TestReplacer.Test();
+            //TestStringReplacer.TestNoList();
+            //TestStringReplacer.TestHasList();
+            //TestStringReplacer.TestCompareWithListandNoList();
+            //TestReplacer.Test();
+
+
+            //TestArrayUtil.Test();
+            //TestArrayUtil.TestArrayReplace();
+            TestPlaceHolder.TestPlaceHolderReplace();
+            Console.Read();
+            //TestReplaceBytesUtil.Test();
+
+            //TestReplaceInByteArrayUtil.test();
         }
     }
 }
